@@ -1,7 +1,6 @@
 package com.example.observador
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.random.Random
@@ -10,13 +9,13 @@ import kotlin.random.Random
 class MyViewModel : ViewModel() {
 
     // Creamos la variable a observar
-    val currentName: MutableStateFlow<String?> = MutableStateFlow("pepe")
+    val currentName: MutableStateFlow<String?> = MutableStateFlow("(valor inicial)")
 
     // funcion para actualizar la variable
-    // necesitamos usar la propiedad "value" ya que es un MutableLiveData
+    // necesitamos usar la propiedad "value" ya que es un MutableStateFlow
     fun addRandom() {
-        var enteroRandom = Random.nextInt(0,10)
-        currentName.value = "pepe:$enteroRandom"
+        val enteroRandom = Random.nextInt(0,10)
+        currentName.value = "Pepe:$enteroRandom"
         Log.d("actualiza", currentName.value ?: "null")
     }
 }
