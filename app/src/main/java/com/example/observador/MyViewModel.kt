@@ -3,13 +3,14 @@ package com.example.observador
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.random.Random
 
 // ViewModel que contiene la lógica y los datos de la aplicación
 class MyViewModel : ViewModel() {
 
     // Creamos la variable a observar
-    val currentName: MutableLiveData<String?> = MutableLiveData("pepe")
+    val currentName: MutableStateFlow<String?> = MutableStateFlow("pepe")
 
     // funcion para actualizar la variable
     // necesitamos usar la propiedad "value" ya que es un MutableLiveData

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -15,7 +16,7 @@ import androidx.compose.ui.Modifier
 @Composable
 fun IU(model: MyViewModel){
 
-    val newName by model.currentName.observeAsState("")
+    val newName by model.currentName.collectAsState("")
     // centramos contenido
     Column(
         modifier = Modifier.fillMaxSize(), // Hace que la columna ocupe todo el ancho y alto.
